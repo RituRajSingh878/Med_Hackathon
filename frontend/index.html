@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ICU Patient Care</title>
+  <link rel="stylesheet" href="vendor/photon-0.1.2/css/photon.min.css" type="text/css">
+  </head>
+  <body>
+    <div class="window">
+        <header class="toolbar toolbar-header">            
+            <div class="toolbar-actions" id="header">
+            </div>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+                <div class="pane-sm sidebar">
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Patients</h5>
+                        <a class="nav-group-item" id="menu-data-selection">
+                            <span class="icon icon-folder"></span>
+                            Add Patient
+                        </a>
+                        <a class="nav-group-item" id="menu-view-patient">
+                            <span class="icon icon-doc-text"></span>
+                            View Patient
+                        </a>    
+                    </nav>
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Quick Tests</h5>
+                        <a class="nav-group-item" id="menu-height-analysis">
+                            <span class="icon icon-arrows-ccw"></span>
+                            Height & Weight Analysis
+                        </a>
+                        <a class="nav-group-item" id="menu-allergies-med">
+                            <span class="icon icon-floppy"></span>
+                            Basic Allergies Med 
+                        </a>    
+                    </nav>					
+                    <nav class="nav-group">
+                        <h5 class="nav-group-title">Analysis</h5>
+                        <a class="nav-group-item" id="menu-prediction">
+                            <span class="icon icon-cog"></span>
+                            Make Predictions
+                        </a>
+                    </nav>
+                </div>
+                <div class= "pane" id="content">
+                    <div class="padded-more">
+                        No Content Loaded
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions"  id="footer">
+                
+            </div>
+        </footer>
+        
+    </div>
+    <div style="display: none;" id="loader"></div>
+    <script src="scripts/frontend.js"></script>
+  </body>
+</html>
