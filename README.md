@@ -22,7 +22,7 @@ npm install
 pip install -r requirements
 ```
 
-start the application
+start the application by giving below command in the repository
 ```
 npm start
 ```
