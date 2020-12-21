@@ -12,8 +12,8 @@ nvm install node
 ```
 Clone the repo
 ```
-git clone https://github.com/RituRajSingh878/optum.git
-cd optum
+git clone https://github.com/RituRajSingh878/Med_Hackathon.git
+cd Med_Hackathon
 ```
 
 Now install the dependencies. Install `pip` first if you don't have it installed by `sudo apt install python-pip`
