@@ -13,21 +13,18 @@ const predict = () => {
             
               if(body[0]=='0'){
                $(document).find("#prediction-result").text("Patient has low risk of health problem");
-               $(document).find("#prediction-result1").html("")                            
+                if(body[1] != "True")
+                {$(document).find("#prediction-result1").html("Possible Cause-"+"<b>"+body[1]+"</b>");}
+                else
+                {$(document).find("#prediction-result1").html("");}                           
             }
               else{
-                     if(body[0]=='1'){
-                                        $(document).find("#prediction-result").text("Patient has mild risk of health problem.");
-                                        if(body[1] != 'True')
-                                          {$(document).find("#prediction-result1").html("<b>"+body[1]+"/b");}
-                                
-                                     }
-                                 else{
-                                        $(document).find("#prediction-result").text("Patient has high risk of health problem.");
-                                        if(body[1] != 'True')
-                                          {$(document).find("#prediction-result1").html("Possible Problems:"+"<b>"+body[1]+"</b>");}                            
-                                     }
-
+                                 
+                   $(document).find("#prediction-result").text("Patient has high risk of health problem.");
+                   if(body[1] != 'True')
+                   {$(document).find("#prediction-result1").html("Possible Cause-"+"<b>"+body[1]+"</b>");}
+                   else
+                   {$(document).find("#prediction-result1").html("");}
 
             }
               

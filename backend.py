@@ -8,6 +8,7 @@ from math import cos, asin, sqrt
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 from sklearn.preprocessing import StandardScaler
+from sklearn import preprocessing
 
 import pickle as p
 app = Flask(__name__)
@@ -39,23 +40,46 @@ def predict():
     data = data[master['Record_Id']==int(RecordID)]
     print((data['Diastolic Blood Pressure in (mm[Hg])']))
     prob = ""
-    if float(data['Diastolic Blood Pressure in (mm[Hg])'])>90:
-        prob = prob+"High Blood Pressure, "
+    try:
+        if float(data['Diastolic Blood Pressure in (mm[Hg])'])>80:
+            prob = prob+"High Diastolic Blood Pressure, "
+        elif float(data['Diastolic Blood Pressure in (mm[Hg])'])<60:
+            prob = prob+"Low Diastolic Blood Pressure, "
+    except( TypeError):
+        pass
+    try:
+        if float(data['Systolic Blood Pressure in (mm[Hg])'])>120:
+            prob = prob+"High Systolic Blood Pressure, "
+        elif float(data['Systolic Blood Pressure in (mm[Hg])'])<90:
+            prob = prob+"Low Systolic Blood Pressure, "
+    except( TypeError):
+        pass
 
-    if float(data['Respiratory rate in (/min)'])<12:
-        prob = prob+"Low Respiratory rate, "
-    elif float(data['Respiratory rate in (/min)'])>16:
-        prob = prob+"High Respiratory rate, "
+    try:
+        if float(data['Respiratory rate in (/min)'])<12:
+            prob = prob+"Low Respiratory rate, "
+        elif float(data['Respiratory rate in (/min)'])>16:
+            prob = prob+"High Respiratory rate, "
+    except TypeError:
+        pass
 
-    if float(data['Heart rate in (/min)'])<60:
-        prob = prob+"Low Heart Rate, "
-    elif float(data['Heart rate in (/min)'])>100:
-        prob = prob+"High Heart Rate, "
+    try:
+        if float(data['Heart rate in (/min)'])<60:
+            prob = prob+"Low Heart Rate, "
+        elif float(data['Heart rate in (/min)'])>100:
+            prob = prob+"High Heart Rate, "
+    except TypeError:
+        pass
 
-    if float(data['Total Cholesterol in (mg/dL)'])<125:
-        prob = prob+"Low Cholesterol, "
-    elif float(data['Total Cholesterol in (mg/dL)'])>200:
-        prob = prob+"High Cholesterol, "
+    try:
+        if float(data['Total Cholesterol in (mg/dL)'])<125:
+            prob = prob+"Low Cholesterol, "
+        elif float(data['Total Cholesterol in (mg/dL)'])>200:
+            prob = prob+"High Cholesterol, "
+    except TypeError:
+        pass
+
+
     if len(prob)==0:
         prob = 'True'
 
@@ -64,7 +88,7 @@ def predict():
     data_n = imp.transform(data)
     model = p.load(open("./model/kmodel.pkl","rb"))
     pred = model.predict(data_n)[0]
-    
+    print(pred)
     return jsonify(str(pred), prob)
 
 @app.route("/add_details", methods=['POST'])
