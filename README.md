@@ -22,6 +22,7 @@ Now, if patients have a problem which is at the complicated stage or at the init
 
 # Use Case of the Product
 Nowadays, ownership of data is crucial, and another important factor is money. During the process of a health checkup to diagnose, patients have to spend lots of money. To reduce the possible cost and time, I'm providing multiple services like, reducing the cost of visiting multiple times, creating self-diagnosis of health with data, self-monitoring, providing the nearest and best organization(hospital) selling the needed medicins, and many more features. 
+![flow](https://drive.google.com/file/d/1lwU0Xi71Qa64Xi-Ffq0-evjXAxgfJtme/view?usp=sharing)
 # Installation Instructions
 
 First you need to install Node.js. If you already have Node.js installed, skip the following commands.
